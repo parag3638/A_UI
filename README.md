@@ -66,7 +66,6 @@ The frontend will run at `http://localhost:3000`
 - **Role-Based Access Control (RBAC)**
 - **Session-Based Authentication** for better security.
 - **CORS Protection** – Only the allowed frontend can send requests to the backend.
-- **Expirable File Sharing Links**
 - **Secure File Upload & Download UI**
 
 ## Contact
