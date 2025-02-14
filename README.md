@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Secure File Sharing Frontend (Next.js)
 
-## Getting Started
+## Overview
+This is the frontend service for the **Secure File Sharing Application**, built with **Next.js**. It features **Multi-Factor Authentication (MFA)** for users and **Passkey Authentication** for admins. Only admins can create new users, and session-based authentication is implemented for security.
 
-First, run the development server:
+## Tech Stack
+- **Next.js 14 + React**
+- **TailwindCSS for UI**
+- **NextAuth.js for Authentication**
+- **Resend for Email MFA**
+- **Axios for API Requests**
+- **Session-Based Authentication**
+- **CORS Protection** (Only allowed origins can access the backend)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Folder Structure
+```
+frontend/
+│── src/
+│   ├── components/     # Reusable UI Components
+│   ├── pages/          # Next.js Pages & Routes
+│   ├── hooks/          # Custom Hooks
+│   ├── lib/            # Authentication & API Logic
+│   ├── styles/         # Global Styles
+│── public/             # Static Assets
+│── .env.local          # Environment Variables
+│── package.json        # Dependencies
+│── README.md           # Documentation
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Setup
+### Prerequisites
+- **Node.js v18+**
+- **Backend running at `http://localhost:5000`**
+- **Docker (Optional for Deployment)**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Installation
+1. **Clone the Repository**
+```bash
+git clone https://github.com/yourusername/secure-file-sharing.git
+cd secure-file-sharing/frontend
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. **Install Dependencies**
+```bash
+npm install
+```
 
-## Learn More
+3. **Start the Frontend**
+```bash
+npm run dev
+```
+The frontend will run at `http://localhost:3000`
 
-To learn more about Next.js, take a look at the following resources:
+## Authentication Flow
+### Admin Authentication
+- Admins **only use Passkey Authentication**.
+- Admins can **create users**, but **not other admins**.
+- Admins have access to the **User Management Panel**.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### User Authentication
+- Users authenticate via **email & password**.
+- Users must enter an **OTP sent via email (MFA using Resend)**.
+- Users **do not** have access to the **Create User** tab.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Features
+- **Role-Based Access Control (RBAC)**
+- **Session-Based Authentication** for better security.
+- **CORS Protection** – Only the allowed frontend can send requests to the backend.
+- **Expirable File Sharing Links**
+- **Secure File Upload & Download UI**
 
-## Deploy on Vercel
+## Contact
+For any questions, feel free to **open an issue** or contact me at:
+📧 parag.singh528@gmail.com
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
