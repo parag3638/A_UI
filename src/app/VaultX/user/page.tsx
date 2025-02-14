@@ -43,7 +43,7 @@ export default function RegisterForm() {
         setServerMessage(null); // Reset any previous messages
 
         try {
-            const response = await axios.post("http://localhost:9000/api/auth/register", formData);
+            const response = await axios.post("https://abnormal-backend.onrender.com/api/auth/register", formData);
             setServerMessage("Account created successfully!");
             reset();
 

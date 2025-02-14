@@ -38,7 +38,7 @@ export default function Dash() {
 
         try {
             const response = await axios.post(
-                "http://localhost:9000/api/decrypt",
+                "https://abnormal-backend.onrender.com/api/decrypt",
                 { filename, password },
                 {
                     headers: { Authorization: `Bearer ${token}` },
@@ -48,7 +48,7 @@ export default function Dash() {
             console.log("✅ Decryption successful:", response.data);
             const newFile = {
                 name: response.data.decryptedFile,
-                downloadLink: `http://localhost:9000/api/decrypted/${response.data.decryptedFile}`,
+                downloadLink: `https://abnormal-backend.onrender.com/api/decrypted/${response.data.decryptedFile}`,
             };
 
             // ✅ Add to decrypted files list

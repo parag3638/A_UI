@@ -72,7 +72,7 @@ export function AccountForm() {
     try {
       // 1️⃣ Call Login API (Which Also Sends OTP)
       console.log("🔍 Calling Login API...");
-      const response = await axios.post("http://localhost:9000/api/auth/login", {
+      const response = await axios.post("https://abnormal-backend.onrender.com/api/auth/login", {
         email: data.mail,
         password: data.password,
       });
@@ -119,7 +119,7 @@ export function AccountForm() {
 
     try {
       console.log("🔍 Verifying OTP...");
-      const response = await axios.post("http://localhost:9000/mail/verify-otp", {
+      const response = await axios.post("https://abnormal-backend.onrender.com/mail/verify-otp", {
         email: mail,  // ✅ Pass the stored email
         otp: data.pin,      // ✅ OTP entered by user
       });
